@@ -32,11 +32,20 @@ function inputName() {
         2013: '2013',
         2014: '2014',
         2015: '2015',
-        2016: '2016'
+        2016: '2016',
     };
-    vm.calculateAge = function () {
+    vm.calculateAge = calculateAge;
+    function calculateAge(){
+        var currentYear = new Date().getFullYear();
+        vm.age = parseInt(currentYear) - parseInt(vm.year);
 
-
+        vm.memory.unshift({
+            name: vm.name,
+            birthyear: vm.year,
+            age: vm.age
+        });
+        vm.name = '';
+        vm.year = '';
     };
 
 };

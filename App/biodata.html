@@ -18,7 +18,7 @@
                 <span><select ng-model="vm.year" class="span2"
                               ng-options="value for (key, value) in vm.years">
                 </select></select>
-                <button ng-click="vm.calculateAge" id="calculateButton" class="btn">Calculate</button>
+                <button ng-click="vm.calculateAge()" id="calculateButton" class="btn">Calculate</button>
             </form>
 
             <h4>History</h4>
@@ -28,11 +28,11 @@
                     <th>Birth Year</th>
                     <th>Age</th>
                 </tr></thead>
-                <!--<tr ng-repeat="result in memory">
+                <tr ng-repeat="result in vm.memory">
                     <td>{{result.name}}</td>
-                    <td>{{result.year}}</td>
+                    <td>{{result.birthyear}}</td>
                     <td>{{result.age}}</td>
-                </tr>-->
+                </tr>
             </table>
         </div>
     </div>
