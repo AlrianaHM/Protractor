@@ -3,6 +3,7 @@ angular.module('biodata',[])
 
 function inputName() {
     var vm = this;
+    vm.name = '';
     vm.memory = [];
     vm.age = 0;
     vm.years = {
@@ -36,16 +37,18 @@ function inputName() {
     };
     vm.calculateAge = calculateAge;
     function calculateAge(){
-        var currentYear = new Date().getFullYear();
-        vm.age = parseInt(currentYear) - parseInt(vm.year);
+        if (vm.name!='' && vm.year !='') {
+            var currentYear = new Date().getFullYear();
+            vm.age = parseInt(currentYear) - parseInt(vm.year);
 
-        vm.memory.unshift({
-            name: vm.name,
-            birthyear: vm.year,
-            age: vm.age
-        });
-        vm.name = '';
-        vm.year = '';
+            vm.memory.unshift({
+                name: vm.name,
+                birthyear: vm.year,
+                age: vm.age
+            });
+            vm.name = '';
+            vm.year = '';
+        }
     };
 
 };
