@@ -43,14 +43,15 @@
             if (vm.name!='' && vm.year !='') {
                 var currentYear = new Date().getFullYear();
                 vm.age = parseInt(currentYear) - parseInt(vm.year);
-
-                vm.memory.unshift({
-                    name: vm.name,
-                    birthyear: vm.year,
-                    age: vm.age
-                });
-                vm.name = '';
-                vm.year = '';
+                if(vm.age>=1) {
+                    vm.memory.unshift({
+                        name: vm.name,
+                        birthyear: vm.year,
+                        age: vm.age
+                    });
+                    vm.name = '';
+                    vm.year = '';
+                }
             }
         };
 
