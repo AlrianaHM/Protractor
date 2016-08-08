@@ -13,6 +13,8 @@ describe("Biodata test", function () {
             name = element(by.model("vm.name"));
             year = element(by.model("vm.year"));
             button = element(by.id("calculateButton"));
+            name.sendKeys("");
+            year.sendKeys();
         })
 
         var memory = element.all(by.repeater("result in vm.memory"));
@@ -30,12 +32,13 @@ describe("Biodata test", function () {
             button.click();
             expect(memory.count()).toEqual(0);
         });
-/*
-        it("should not add to memory when name empty", function () {
+
+        it("should calculate age", function () {
+            name.sendKeys("Alriana");
+            year.sendKeys(5000);
             button.click();
-            expect(memory.count()).toEqual(0);
+            expect(memory.count()).toEqual(1);
         });
-*/
     })
 
 });
